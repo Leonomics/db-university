@@ -1,0 +1,33 @@
+1. 	SELECT `students`.`id`,`students`.`name`,`students`.`surname`,`degrees`.`id` as `degree_id` 
+   	FROM `students` JOIN `degrees` 
+   	ON `students`.`degree_id`=`degrees`.`id` 
+   	WHERE `students`.`degree_id` = '9';
+
+2. 	SELECT * FROM `degrees` 
+   	JOIN `departments` 
+   	ON `degrees`.`department_id`= `departments`.`id`
+  	WHERE `degrees`.`department_id` = '7' AND `degrees`.`level`='magistrale';
+
+3.	SELECT * FROM `course_teacher`
+	JOIN `courses`
+	ON `course_teacher`.`course_id` =  `courses`.`id`
+	WHERE `course_teacher`.`teacher_id` = '44';
+
+4.	SELECT `students`.`id`,`students`.`name`,`students`.`surname`,`degrees`.`id` as `degree_id`,`degrees`.`name`,`degrees`.`department_id`,`departments`.`name`
+	FROM `students`
+	JOIN `degrees`
+	ON `students`.`degree_id`=`degrees`.`id`
+	JOIN `departments`
+	ON `degrees`.`department_id`=`departments`.`id`
+	ORDER BY `students`.`surname`,`students`.`name`
+
+5.	SELECT `degrees`.`name`,`courses`.`id` as `teaching_id`,`courses`.`name`,`teachers`.`name`,`teachers`.`surname` FROM `course_teacher` 
+	JOIN `courses` 
+	ON `course_teacher`.`course_id` = `courses`.`id` 
+	JOIN `teachers` 
+	ON `course_teacher`.`teacher_id`= `teachers`.`id` 
+	JOIN `degrees` 
+	ON `courses`.`degree_id`=`degrees`.`id` 
+	ORDER BY `degrees`.`name`;
+
+6.
